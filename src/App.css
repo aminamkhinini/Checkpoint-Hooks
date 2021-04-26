@@ -25,7 +25,7 @@ h1{
     -webkit-transition: all 1s ease ;
     transition: all 1s ease ;
     }
-    .card:hover {
+.card:hover {
    
     -webkit-transform:scale(1.25) ; 
     

@@ -1,6 +1,5 @@
 
-
-import React, { useState, useEffect} from 'react';
+import React, { useState} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MovieList from './Components/MovieList';
@@ -36,7 +35,7 @@ import Rating from './Components/Rating';
        title: "La Voix de La Justice",
        description:"Le combat historique du jeune avocat Bryan Stevenson. Après ses études à l’université de Harvard, Bryan Stevenson aurait pu se lancer dans une carrière des plus lucratives. Il décide pourtant de se rendre en Alabama pour défendre ceux qui ont été condamnés à tort, avec le soutien d’une militante locale, Eva Ansley. ",
        posterURL: "https://media.senscritique.com/media/000019142368/source_big/1917.jpg",
-       rating: 2,
+       rating: 3,
       },
       {id:uuidv4(),
        title: "En Avant",
@@ -54,22 +53,15 @@ const handelrating=(rate) =>{
 };
 
 const [searchTerm, setSearchTerm] = React.useState("");
-const [searchResults, setSearchResults] = React.useState([]);
-  const handleChange = event => {
-    setSearchTerm(event.target.value);
+
+  const handleChange =(searchTerm) => {
+    setSearchTerm(searchTerm);
   };
-  React.useEffect(() => {
-    const results = movies.filter(elm =>
-      elm.title.toLowerCase().includes((searchTerm).toLowerCase())&& elm.rating>=rate)
-    setSearchResults(results);
-  }, [searchTerm]);
+ 
   const handleAddNewMovie  =(NewMovie) => {
     setmovies([...movies,NewMovie])
    };
   
-
-  
-       
     
    return (
  
@@ -78,14 +70,14 @@ const [searchResults, setSearchResults] = React.useState([]);
          <h1 >Movies </h1>
        </div>
       <div>
-         <Filter searchTerm={searchTerm}  handleChange={ handleChange}></Filter>
+         <Filter searchTerm={searchTerm}  handleChange={handleChange}></Filter>
       </div>
         <div className="star">
           <Rating handelrating={handelrating} rate={rate}></Rating>
         </div>
         <div>
           <MovieList movies={movies.filter(elm =>
-     elm.title.toLowerCase().includes((searchTerm).toLowerCase())&& elm.rating>=rate)}> </MovieList> 
+     elm.title.toLowerCase().includes((searchTerm).toLowerCase())&& elm.rating >=rate)}> </MovieList> 
         </div>
         
         <AddMovie handleAddNewMovie={handleAddNewMovie}> </AddMovie>

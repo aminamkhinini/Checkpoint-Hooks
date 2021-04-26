@@ -1,10 +1,8 @@
-import React, { useState} from "react"; 
+import React from "react"; 
+ function Filter({searchTerm, handleChange}) {
 
- function Filter() {
-
-  const [searchTerm, setSearchTerm] = React.useState("");
-  const handleChange = event => {
-    setSearchTerm(event.target.value);
+  const handleChangeterm = event => {
+    handleChange(event.target.value);
   };
   return (
     
@@ -13,7 +11,7 @@ import React, { useState} from "react";
         type="text"
         placeholder="Search"
         value={searchTerm}
-        onChange={handleChange}
+        onChange={handleChangeterm}
           
         /> 
     

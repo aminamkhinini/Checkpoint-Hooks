@@ -5,7 +5,7 @@ const Rating =({rate,handelrating}) =>{
   
     const ratingChanged = (newRating) => {
         console.log(newRating);
-        handelrating(newRating)
+        handelrating(newRating);
       };
        
     return(
